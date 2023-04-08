@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Orders</title>
+    <link rel="stylesheet" href="/nodeshopstore/public/styles.css" />
+    <style>
+      /* styles.css */
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      thead {
+        background-color: #f2f2f2;
+      }
+
+      th {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      tbody tr:hover {
+        background-color: #ddd;
+      }
+
+      p {
+        font-size: 18px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Orders</h1>
+    <% if (orders.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Phone Number</th>
+          <th>Dorms Location</th>
+          <th>Room Number</th>
+          <th>URL</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.quantity %></td>
+          <td><%= order.phone %></td>
+          <td><%= order.dorms %></td>
+          <td><%= order.room %></td>
+          <td><%= order.url %></td>
+          <td><%= order.date.toLocaleString() %></td>
+          <td>
+            <form method="POST" action="/order/<%= order._id %>/delete">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <div>
+      <% if (currentPage > 1) { %>
+      <a href="/orders?page=<%= currentPage - 1 %>">Previous</a>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <a href="/orders?page=<%= currentPage + 1 %>">Next</a>
+      <% } %>
+    </div>
+    <% } else { %>
+    <p>No orders found.</p>
+    <% } %>
+  </body>
+</html>

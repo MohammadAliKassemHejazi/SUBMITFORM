@@ -1,0 +1,211 @@
+/* Global styles */
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #f8e1e1; /* light pink */
+  color: #333;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  text-align: center;
+  font-family: "Lobster", cursive; /* more feminine font */
+  color: #d9406f; /* bright pink */
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2em;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #d9406f; /* bright pink */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="url"] {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #f8e1e1; /* light pink */
+  color: #333;
+  font-family: "Lato", sans-serif; /* more feminine font */
+}
+
+input[type="submit"] {
+  background-color: #d9406f; /* bright pink */
+  color: #fff;
+  font-size: 1.2em;
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease;
+  font-family: "Lobster", cursive; /* more feminine font */
+}
+
+input[type="submit"]:hover {
+  background-color: #fca3b3; /* light pink */
+}
+
+/* Specific styles for this form */
+h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  text-shadow: 1px 1px #fca3b3; /* light pink shadow */
+}
+
+label[for="name"] {
+  font-size: 1.2em;
+}
+
+input[type="text"][name="name"] {
+  font-size: 1.5em;
+}
+
+label[for="quantity"] {
+  font-size: 1.2em;
+}
+
+input[type="number"][name="quantity"] {
+  font-size: 1.5em;
+}
+
+label[for="phone"] {
+  font-size: 1.2em;
+}
+
+input[type="tel"][name="phone"] {
+  font-size: 1.5em;
+}
+
+label[for="dorms"] {
+  font-size: 1.2em;
+}
+
+input[type="text"][name="dorms"] {
+  font-size: 1.5em;
+}
+
+label[for="room"] {
+  font-size: 1.2em;
+}
+
+input[type="text"][name="room"] {
+  font-size: 1.5em;
+}
+
+label[for="url"] {
+  font-size: 1.2em;
+}
+
+input[type="url"][name="url"] {
+  font-size: 1.5em;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fca3b3;
+  padding: 0.625rem;
+  box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  margin-right: 1.25rem;
+  color: #d9406f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #fca3b3;
+}
+
+@media only screen and (max-width: 767px) {
+  /* styles for screens smaller than 767px */
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  input[type="submit"] {
+    font-size: 1em;
+    padding: 0.6em 1em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* styles for screens between 768px and 991px */
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  input[type="submit"] {
+    font-size: 1.2em;
+    padding: 0.8em 1.5em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  /* styles for screens larger than 992px */
+  body {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  input[type="submit"] {
+    font-size: 1.2em;
+    padding: 0.8em 2em;
+  }
+}
+
+body form {
+  /* Existing styles */
+  background-image: linear-gradient(to bottom, #f2bebd, #ff7c6e5e);
+  /* Add a background-size to cover the entire element */
+  background-size: 100% 100%;
+  /* Add animation */
+  animation: gradient-animation 0.2s ease-in-out infinite alternate;
+}
+
+/* Define animation */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+form {
+  /* Existing styles */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
