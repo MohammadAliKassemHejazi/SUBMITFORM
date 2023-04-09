@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "./node_modules/.bin/netlify-lambda serve app",
-    "build": "./node_modules/.bin/netlify-lambda build app"
+    "build": "./node_modules/.bin/netlify-lambda build app.js"
   },
   "keywords": [],
   "author": "",
