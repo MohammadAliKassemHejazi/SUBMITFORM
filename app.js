@@ -3,8 +3,6 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const mongoosePaginate = require("mongoose-paginate-v2");
 
-const serverless = require("serverless-http");
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -13,9 +11,8 @@ const LocalStrategy = require("passport-local").Strategy;
 const flash = require("flash");
 
 const session = require("express-session");
-const router = express.Router();
 
-router.use(
+app.use(
   session({
     secret: "my-secret-key",
     resave: false,
@@ -42,9 +39,9 @@ passport.deserializeUser(function (id, done) {
   done(null, { username: id });
 });
 
-router.use(passport.initialize());
-router.use(passport.session());
-router.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 // Connect to MongoDB
 mongoose
@@ -76,12 +73,12 @@ orderSchema.plugin(mongoosePaginate);
 const Order = mongoose.model("Order", orderSchema);
 
 // Define routes
-router.use(express.urlencoded({ extended: true }));
-router.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Render the order form
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
   Order.find({}, (err, orders) => {
     if (err) {
       console.log(err);
@@ -92,7 +89,7 @@ router.get("/", (req, res) => {
 });
 
 // Create a new order
-router.post("/orders", (req, res) => {
+app.post("/orders", (req, res) => {
   const order = new Order({
     name: req.body.name,
     quantity: req.body.quantity,
@@ -111,7 +108,7 @@ router.post("/orders", (req, res) => {
 });
 
 // Get all orders
-router.get("/orders", isAuthenticated, async (req, res) => {
+app.get("/orders", isAuthenticated, async (req, res) => {
   const pageSize = 10; // Number of orders to display on each page
   const page = parseInt(req.query.page) || 1; // Default to page 1 if page query param is not provided
   const totalOrders = await Order.countDocuments();
@@ -134,7 +131,7 @@ router.get("/orders", isAuthenticated, async (req, res) => {
     });
 });
 
-router.post("/order/:id/delete", async (req, res) => {
+app.post("/order/:id/delete", async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);
     res.redirect("/orders");
@@ -144,7 +141,7 @@ router.post("/order/:id/delete", async (req, res) => {
   }
 });
 
-router.post(
+app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/orders",
@@ -152,14 +149,15 @@ router.post(
   })
 );
 
-router.get("/login", (req, res) => {
+app.get("/login", (req, res) => {
   res.render("login", { messages: req.flash("error") });
 });
 
 // Start the server
-// router.listen(PORT, () => {
-//   console.log(`Server started on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+  next();
+});
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -167,6 +165,3 @@ function isAuthenticated(req, res, next) {
   }
   res.redirect("/login");
 }
-app.use(`/.netlify/functions/api`, router);
-module.exports = app;
-module.exports.handler = serverless(app);
