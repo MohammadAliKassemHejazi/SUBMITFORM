@@ -1,7 +1,5 @@
 [build]
-  command = "npm run start"
-  publish = "public"
+  functions = "functions"
 
 [dev]
-  command = "npm run start"
-  publish = "public"
+  publish = "dist"
