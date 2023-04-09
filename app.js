@@ -78,7 +78,7 @@ const Order = mongoose.model("Order", orderSchema);
 // Define routes
 router.use(express.urlencoded({ extended: true }));
 router.use(express.static("public"));
-router.set("view engine", "ejs");
+app.set("view engine", "ejs");
 
 // Render the order form
 router.get("/", (req, res) => {
