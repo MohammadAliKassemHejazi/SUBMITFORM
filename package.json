@@ -4,9 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=production MONGO_USER=mohammad MONGO_PASSWORD=NuTTertYs12 MONGO_DEFAULT_DATABASE=test  node app.js",
-    "start-server": "node app.js",
-    "start-dev": "nodemon app.js"
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
