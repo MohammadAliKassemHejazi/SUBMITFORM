@@ -1,5 +1,5 @@
 [build]
-  functions = "app"
+  functions = "views"
 
 [dev]
   publish = "views"
