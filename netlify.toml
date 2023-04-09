@@ -2,4 +2,4 @@
   functions = "views"
 
 [dev]
-  publish = "views"
+  publish = "app"
