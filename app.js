@@ -150,7 +150,8 @@ app.post(
 );
 
 app.get("/login", (req, res) => {
-  res.render("login", { messages: req.flash("error") });
+  const errorMessage = req.flash("error");
+  res.render("login", { messages: errorMessage });
 });
 
 // Start the server
