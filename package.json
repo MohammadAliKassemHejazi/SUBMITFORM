@@ -7,7 +7,10 @@
     "start-dev": "NODE_ENV=production MONGO_USER=mohammad MONGO_PASSWORD=NuTTertYs12 MONGO_DEFAULT_DATABASE=test  node app.js",
     "start-server": "node app.js",
     "start": "nodemon app.js",
-    "build": "ejs views/index.ejs -o public/index.html"
+    "build-index": "ejs views/index.ejs -o public/index.html",
+    "build-login": "ejs views/login.ejs -o public/login.html",
+    "build-order": "ejs views/order.ejs -o public/order.html",
+    "build": "npm run build-index && npm run build-login && npm run build-order"
   },
   "keywords": [],
   "author": "",
