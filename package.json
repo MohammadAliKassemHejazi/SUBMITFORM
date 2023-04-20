@@ -6,7 +6,8 @@
   "scripts": {
     "start-dev": "NODE_ENV=production MONGO_USER=mohammad MONGO_PASSWORD=NuTTertYs12 MONGO_DEFAULT_DATABASE=test  node app.js",
     "start-server": "node app.js",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build": "ejs views/index.ejs -o public/index.html"
   },
   "keywords": [],
   "author": "",
