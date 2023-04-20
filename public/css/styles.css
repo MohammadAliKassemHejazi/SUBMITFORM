@@ -1,6 +1,6 @@
 /* Global styles */
 body {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: sans-serif;
   background-color: #f8e1e1; /* light pink */
   color: #333;
   line-height: 1.6;
@@ -10,7 +10,7 @@ h1,
 h2 {
   font-weight: 400;
   text-align: center;
-  font-family: "Lobster", cursive; /* more feminine font */
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; /* more feminine font */
   color: #d9406f; /* bright pink */
 }
 
@@ -118,15 +118,27 @@ input[type="url"][name="url"] {
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   background-color: #fca3b3;
   padding: 0.625rem;
   box-shadow: 0 0.125rem 0.125rem rgba(0, 0, 0, 0.1);
+  position: sticky;
+}
+
+.logo {
+  margin-right: 1.25rem;
+  height: 2.5rem;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-link {
-  margin-right: 1.25rem;
+  margin-left: 1.25rem;
   color: #d9406f;
   text-decoration: none;
   font-weight: bold;

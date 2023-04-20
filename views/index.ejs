@@ -7,8 +7,16 @@
   </head>
   <body>
     <nav>
-      <a href="/" class="nav-link">Home</a>
-      <a href="/login" class="nav-link">Login</a>
+      <div class="logo">
+        <a href="/">
+          <img src="/public/images/logo.webp" alt="Logo" />
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/login" class="nav-link">Login</a>
+      </div>
     </nav>
     <h1>Submit an Order</h1>
     <form action="/orders" method="POST">
