@@ -9,7 +9,7 @@
     <nav>
       <div class="logo">
         <a href="/">
-          <img src="/public/images/logo.webp" alt="Logo" />
+          <img src="../../images/logo.webp" alt="Logo" />
         </a>
       </div>
 
@@ -19,27 +19,30 @@
       </div>
     </nav>
     <h1>Submit an Order</h1>
-    <form action="/orders" method="POST">
-      <label for="name">Full name:</label>
-      <input type="text" name="name" required />
-      <br />
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="quantity" min="1" required />
-      <br />
-      <label for="phone">Phone number:</label>
-      <input type="tel" name="phone" required />
-      <br />
-      <label for="dorms">Dorms location:</label>
-      <input type="text" name="dorms" required />
-      <br />
-      <label for="room">Room number:</label>
-      <input type="text" name="room" required />
-      <br />
-      <label for="url">URL:</label>
-      <input type="url" name="url" required />
-      <br />
-      <input type="submit" value="Submit" />
-    </form>
-    <hr />
+    <div class="form-container">
+      <img src="../../images/card.jpeg" class="flip-trigger" />
+
+      <form action="/orders" method="POST">
+        <label for="name">Full name:</label>
+        <input type="text" name="name" required />
+        <br />
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" min="1" required />
+        <br />
+        <label for="phone">Phone number:</label>
+        <input type="tel" name="phone" required />
+        <br />
+        <label for="dorms">Dorms location:</label>
+        <input type="text" name="dorms" required />
+        <br />
+        <label for="room">Room number:</label>
+        <input type="text" name="room" required />
+        <br />
+        <label for="url">URL:</label>
+        <input type="url" name="url" required />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   </body>
 </html>

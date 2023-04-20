@@ -15,7 +15,7 @@ h2 {
 }
 
 form {
-  max-width: 500px;
+  max-width: 50%;
   margin: 0 auto;
   padding: 2em;
   border-radius: 5px;
@@ -128,7 +128,11 @@ nav {
 
 .logo {
   margin-right: 1.25rem;
-  height: 2.5rem;
+  height: 2rem !important;
+  width: 3rem !important;
+}
+.logo img {
+  height: 100%;
 }
 
 .nav-links {
@@ -190,15 +194,6 @@ nav {
   }
 }
 
-body form {
-  /* Existing styles */
-  background-image: linear-gradient(to bottom, #f2bebd, #ff7c6e5e);
-  /* Add a background-size to cover the entire element */
-  background-size: 100% 100%;
-  /* Add animation */
-  animation: gradient-animation 0.2s ease-in-out infinite alternate;
-}
-
 /* Define animation */
 @keyframes gradient-animation {
   0% {
@@ -220,4 +215,50 @@ form {
 
 form:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.form-container {
+  height: 100vh;
+  position: relative;
+  perspective: 1000px;
+}
+
+.form-container img {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 1s; /* Add transition effect */
+  transform-style: preserve-3d;
+}
+
+.form-container form {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg); /* Rotate the form 180 degrees on the Y axis */
+  backface-visibility: hidden;
+  transition: transform 1s; /* Add transition effect */
+  transform-style: preserve-3d;
+}
+
+.form-container:hover img {
+  transform: rotateY(-180deg); /* Flip the image when hovered */
+}
+
+.form-container:hover form {
+  transform: rotateY(0deg); /* Flip the form when hovered */
+}
+
+body form {
+  /* Existing styles */
+  background-image: linear-gradient(to bottom, #f2bebd, #ff7c6e5e);
+  /* Add a background-size to cover the entire element */
+  background-size: 100% 100%;
+  /* Add animation */
+  animation: gradient-animation 0.2s ease-in-out infinite alternate;
 }
