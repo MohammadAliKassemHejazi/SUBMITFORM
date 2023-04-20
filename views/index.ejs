@@ -2,10 +2,43 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fca3b3" />
+    <meta name="theme-color" content="#fca3b3" />
+
     <title>Submit an Order</title>
     <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../favicon-32x32.png"
+      sizes="32x32"
+    />
+
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+
+    <link rel="icon" sizes="192x192" href="../../android-chrome-192x192.png" />
+    <link rel="icon" sizes="512x512" href="../../android-chrome-512x512.png" />
+
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      /* Create a circular mask */
+      #favicon {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      /* Set the dimensions of the favicon */
+      #favicon img {
+        width: 48px;
+        height: 48px;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -20,7 +53,7 @@
         <a href="/login" class="nav-link">Login</a>
       </div>
     </nav>
-    <h1>Submit an Order</h1>
+    <h1>Click on The Image below to start your Order</h1>
     <div class="form-container">
       <img src="../../images/card.jpeg" class="flip-trigger" />
 
